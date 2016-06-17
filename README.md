@@ -1,5 +1,7 @@
 # Angular Socket.io Seed
 
+Clone of [btford/angular-socket-io-seed](https://github.com/btford/angular-socket-io-seed).
+
 Start an awesome app with AngularJS on the front, Socket.io + Express + Node on the back. This
 project is an application skeleton for writing [AngularJS](http://angularjs.org/) apps that use
 web sockets to add real-time functionality. If you're not planning on using web sockets, you
@@ -51,7 +53,7 @@ and wrote a [blog post](http://briantford.com/blog/angular-socket-io.html) walki
 illustrate using the seed.
 
 ## Directory Layout
-    
+
     app.js                  --> app config
     bower.json              --> for bower
     package.json            --> for npm
