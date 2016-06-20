@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mdcApp">
+
+<head>
+  <meta charset="UTF-8">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Marcos del Cristo's personal website.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Marcos del Cristo</title>
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="/img/chrome-touch-icon-192x192.png">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Marcos del Cristo">
+  <link rel="apple-touch-icon-precomposed" href="/img/ios-desktop.png">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="/img/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#3372DF">
+  <link rel="shortcut icon" href="/img/favicon.png">
+  <!-- Google fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="/css/angular-material.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body layout="column" ng-controller="HomeCtrl" ng-cloak>
+
+  <header>
+    <md-content>
+      <md-toolbar layout="row" layout-align="space-between center" class="md-hue-2">
+        <div layout="column" layout-align="start">
+          <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleMainNav()">
+              <md-icon>menu</md-icon>
+            </md-button>
+          </div>
+        </div>
+        <div layout="column" layout-align="center end">
+          <span class="initial">m</span>
+        </div>
+      </md-toolbar>
+    </md-content>
+  </header>
+
+  <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="mainNav" md-is-locked-open="media('gt-md')">
+    <md-toolbar class="md-hue-2">
+      <div layout="row" layout-align="space-between center">
+        <div layout="column" layout-align="start">start</div>
+        <div layout="column" layout-align="end">
+          <md-button class="md-icon-button" aria-label="Close Main Menu" ng-click="closeMainNav()" class="md-primary">
+            <md-icon>close</md-icon>
+          </md-button>
+        </div>
+      </div>
+      <span flex></span>
+      <div layout="row" layout-align="start center">
+        <span flex></span>
+      </div>
+      <span flex></span>
+      <div class="md-body-2">FirstName LastName</div>
+      <div class="md-body-1">first.last@illinois.edu</div>
+    </md-toolbar>
+    <md-list>
+      <md-list-item class="md-2-line" ng-repeat="item in menu" role="link" md-ink-ripple>
+        <md-icon class="md-icon__vert-align">{{item.icon}}</md-icon>
+        <div class="md-list-item-text">
+          <span class="md-body2">{{item.title}}</span>
+        </div>
+      </md-list-item>
+      <md-divider></md-divider>
+      <md-subheader class="md-no-sticky">Admin</md-subheader>
+      <md-list-item class="md-2-line" ng-repeat="item in admin" role="link" md-ink-ripple>
+        <md-icon class="md-icon__vert-align">{{item.icon}}</md-icon>
+        <div class="md-list-item-text">
+          <span class="md-body-2">{{item.title}}</span>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-sidenav>
+
+  <div layout="column" role="main">
+  	<md-content flex md-scroll-y>
+  		<div layout="column" layout-fill layout-padding layout-wrap>
+  			<div class="inset" hide-sm></div>
+  			<a ui-sref="state1">Route 1</a>
+  			<a ui-sref="state2">Route 2</a>
+
+  			<div layout="row">
+  				<md-whiteframe class="md-whiteframe-2dp" flex layout layout-align="center center">
+  					<div ui-view></div>
+  				</md-whiteframe>
+  			</div>
+  		</div>
+  	</md-content>
+  </div>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="/js/dependencies/angular.min.js"></script>
+  <script src="/js/dependencies/angular-animate.min.js"></script>
+  <script src="/js/dependencies/angular-aria.min.js"></script>
+  <script src="/js/dependencies/angular-ui-router.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="/js/dependencies/angular-material.min.js"></script>
+
+  <!-- Application bootstrap  -->
+  <script src="/js/modules/mdcApp.js"></script>
+  <script src="/js/controllers/HomeCtrl.js"></script>
+  <script src="/js/config/appConfig.js"></script>
+
+</body>
+
+</html>

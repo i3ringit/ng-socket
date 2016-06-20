@@ -4,7 +4,7 @@
  */
 
 var express = require('express'),
-  routes = require('./routes'),
+  // routes = require('./routes'),
   api = require('./routes/api'),
   http = require('http'),
   path = require('path');
@@ -19,8 +19,8 @@ var io = require('socket.io').listen(server);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
+// app.set('views', __dirname + '/views');
+// app.set('view engine', 'jade');
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -43,14 +43,14 @@ if (app.get('env') === 'production') {
  */
 
 // serve index and view partials
-app.get('/', routes.index);
-app.get('/partials/:name', routes.partials);
+// app.get('/', routes.index);
+// app.get('/partials/:name', routes.partials);
 
 // JSON API
 app.get('/api/name', api.name);
 
 // redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
+// app.get('*', routes.index);
 
 // Socket.io Communication
 io.sockets.on('connection', require('./routes/socket'));
